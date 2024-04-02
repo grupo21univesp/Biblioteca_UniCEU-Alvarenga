@@ -1,0 +1,59 @@
+import kivy
+from kivy.app import App
+from kivy.uix.screenmanager import Screen
+from kivy.properties import ObjectProperty
+
+kivy.require('2.0.0')
+
+class LoginScreen(Screen):
+    login_input = ObjectProperty(None)
+    password_input = ObjectProperty(None)
+
+    def validate_credentials(self):
+        # Lógica para validar as credenciais
+        login = self.login_input.text
+        password = self.password_input.text
+
+        # Exemplo simples de validação
+        if login == 'usuario' and password == 'senha':
+            print("Credenciais válidas! Faça algo aqui, como mudar de tela.")
+        else:
+            print("Credenciais inválidas. Tente novamente.")
+
+class LoginApp(App):
+    def build(self):
+        return LoginScreen()
+
+if __name__ == '__main__':
+    LoginApp().run()
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+<LoginScreen>:
+    GridLayout:
+        cols: 1
+        padding: 20
+
+        Label:
+            text: 'UniCEU Alvarenga'
+            font_size: 24
+
+        TextInput:
+            id: login_input
+            hint_text: 'Digite seu login'
+
+        TextInput:
+            id: password_input
+            hint_text: 'Digite sua senha'
+            password: True
+
+        Image:
+            source: 'UniCEU.png'  # Substitua 'logo.png' pelo caminho para a sua imagem
+            size_hint_y: None
+            height: 200
+
+        Button:
+            text: 'Login'
+            on_press: root.validate_credentials()
