@@ -16,7 +16,7 @@ class LoginScreen(Screen):
 
         # Exemplo simples de validação
         if login == 'usuario' and password == 'senha':
-            print("Credenciais válidas! Faça algo aqui, como mudar de tela.")
+            print("Credenciais válidas!S")
         else:
             print("Credenciais inválidas. Tente novamente.")
 
