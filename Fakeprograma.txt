@@ -14,7 +14,7 @@ class LoginScreen(Screen):
         login = self.login_input.text
         password = self.password_input.text
 
-        # Exemplo simples de validação
+        # Validação
         if login == 'usuario' and password == 'senha':
             print("Credenciais válidas!S")
         else:
